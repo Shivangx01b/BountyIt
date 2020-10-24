@@ -32,9 +32,17 @@ $ go get -u -v github.com/shivangx01b/BountyIt
 ```
 ## Usage
 
+- Note:
+ Urls must have like 
+ ```
+ https://example.com/FUZZ 
+        or 
+ https://example.com/?query=FUZZ
+ ```
+
 Single Url
 ```plain
-echo "https://example.com" | BountyIt
+echo "https://example.com/FUZZ" | BountyIt
 ```
 Multiple Url
 ```plain
