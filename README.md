@@ -46,7 +46,7 @@ cat http_https.txt | LfiMe -t 70  -method "POST" -p payloads.txt -grep signature
 ```
 
 ## Screenshot
-![1414](https://github.com/Shivangx01b/CorsMe/blob/master/run.PNG)
+![1414](https://github.com/Shivangx01b/LfiMe/blob/main/run.PNG)
 
 ## Note:
 
