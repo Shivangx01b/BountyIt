@@ -23,11 +23,11 @@ echo "https://example.com" | LfiMe
 ```
 Multiple Url
 ```plain
-cat http_https.txt | LfiMe -t 70
+cat http_https.txt | LfiMe -t 70 -p payloads.txt
 ```
 Add another method if required
 ```plain
-cat http_https.txt | LfiMe -t 70  -method "POST"
+cat http_https.txt | LfiMe -t 70  -method "POST" -p payloads.txt
 ```
 
 ## Screenshot
