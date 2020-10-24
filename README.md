@@ -12,6 +12,8 @@ A local file inclusion fuzzer made in golang that's it !
 
 ## Help
 ```
+ -grep string
+        Specify custom grepping singantures. Ex -grep singantures.txt
   -method string
         Add method name if required. Ex: -method PUT. Default "GET" (default "GET")
   -p string
@@ -20,30 +22,31 @@ A local file inclusion fuzzer made in golang that's it !
         Number of workers to use..default 40. Ex: -t 50 (default 40)
   -verify
         Only prints confirmed results. Ex -verify
+
 ```
 
 ## How to Install
 
 ```
-$ go get -u -v github.com/shivangx01b/LfiMe
+$ go get -u -v github.com/shivangx01b/BountyIt
 ```
 ## Usage
 
 Single Url
 ```plain
-echo "https://example.com" | LfiMe
+echo "https://example.com" | BountyIt
 ```
 Multiple Url
 ```plain
-cat http_https.txt | LfiMe -t 70 -p payloads.txt
+cat http_https.txt | BountyIt -t 70 -p payloads.txt -verify
 ```
 Add another method if required
 ```plain
-cat http_https.txt | LfiMe -t 70  -method "POST" -p payloads.txt
+cat http_https.txt | LfiMe -t 70  -method "POST" -p payloads.txt -grep signatures.txt
 ```
 
 ## Screenshot
-![1414](https://github.com/Shivangx01b/CorsMe/blob/master/static/action.png)
+![1414](https://github.com/Shivangx01b/CorsMe/blob/master/run.PNG)
 
 ## Note:
 
