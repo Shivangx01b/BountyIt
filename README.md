@@ -10,6 +10,18 @@
 ## What is LfiMe ?
 A local file inclusion fuzzer made in golang that's it !
 
+## Help
+```
+  -method string
+        Add method name if required. Ex: -method PUT. Default "GET" (default "GET")
+  -p string
+        Feed the list of payloads to fuzz. Ex: -p ~/wordlists/lfi.txt
+  -t int
+        Number of workers to use..default 40. Ex: -t 50 (default 40)
+  -verify
+        Only prints confirmed results. Ex -verify
+```
+
 ## How to Install
 
 ```
