@@ -7,8 +7,8 @@
   <a href="https://twitter.com/intent/follow?screen_name=shivangx01b"><img src="https://img.shields.io/twitter/follow/shivangx01b?style=flat-square"></a>
 </h1>
 
-## What is LfiMe ?
-A local file inclusion fuzzer made in golang that's it !
+## What is BountyIt ?
+A fuzzer made in golang for finding issues like xss, lfi, rce, ssti...comes with pre-defind signarutres and signatures wordlist that's it!
 
 ## Help
 ```
@@ -42,7 +42,7 @@ cat http_https.txt | BountyIt -t 70 -p payloads.txt -verify
 ```
 Add another method if required
 ```plain
-cat http_https.txt | LfiMe -t 70  -method "POST" -p payloads.txt -grep signatures.txt
+cat http_https.txt | BountyIt -t 70  -method "POST" -p payloads.txt -grep signatures.txt
 ```
 
 ## Screenshot
