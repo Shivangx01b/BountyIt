@@ -121,7 +121,7 @@ func Banner() {
 |    |  \   __\|  |/  \ /  \_/ __ \ 
 |    |___|  |  |  /    Y    \  ___/ 
 |_______ \__|  |__\____|__  /\___  >
-		\/                \/     \/   v1.0
+        \/                \/     \/  v1.0  
 										   `)
 	color.HiRed("                 " + "Made with <3 by @shivangx01b")
 	
@@ -166,7 +166,7 @@ func main() {
 			close(urls)
 			processGroup.Wait()
 		} else {
-			fmt.Println("%v\n", color.RedString("[!] Must give payload list"))
+			color.HiRed("\n[!] Must give payload list")
 		}
 	} else {
 		color.HiRed("\n[!] Check: LfiMe -h for arguments")
