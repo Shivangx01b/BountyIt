@@ -33,7 +33,7 @@ $ go get -u -v github.com/shivangx01b/BountyIt
 ## Usage
 
 - Note:
- Urls must have like 
+ Urls must have keyword "FUZZ" like
  ```
  https://example.com/FUZZ 
         or 
