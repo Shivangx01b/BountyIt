@@ -52,6 +52,8 @@ Add another method if required
 ```plain
 cat http_https.txt | BountyIt -t 70  -method "POST" -p payloads.txt -grep signatures.txt
 ```
+- Note:
+  Check wordlist dir for signatures.txt and basic fuzzing list for basic ssti, rce, lfi.
 
 ## Screenshot
 ![1414](https://github.com/Shivangx01b/LfiMe/blob/main/static/run.PNG)
