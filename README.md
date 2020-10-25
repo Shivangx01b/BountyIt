@@ -54,7 +54,7 @@ cat http_https.txt | BountyIt -t 70  -method "POST" -p payloads.txt -grep signat
 ```
 
 ## Screenshot
-![1414](https://github.com/Shivangx01b/LfiMe/blob/main/static/logo.png)
+![1414](https://github.com/Shivangx01b/LfiMe/blob/main/static/run.PNG)
 
 
 
