@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href=""><img src="https://github.com/Shivangx01b/LfiMe/blob/main/logo.png" alt="" width="200px;"></a>
+  <a href=""><img src="https://github.com/Shivangx01b/LfiMe/blob/main/static/logo.png" alt="" width="200px;"></a>
   <br>
   <img src="https://img.shields.io/github/languages/top/Shivangx01b/CorsMe?style=flat-square">
   <a href="https://goreportcard.com/report/github.com/Shivangx01b/CorsMe"><img src="https://goreportcard.com/badge/github.com/Shivangx01b/CorsMe"></a>
@@ -54,10 +54,8 @@ cat http_https.txt | BountyIt -t 70  -method "POST" -p payloads.txt -grep signat
 ```
 
 ## Screenshot
-![1414](https://github.com/Shivangx01b/LfiMe/blob/main/run.PNG)
+![1414](https://github.com/Shivangx01b/LfiMe/blob/main/static/logo.png)
 
-## Note:
 
-- Scanner stores the error results as "error_requests.txt"... which contains urls which cannot be requested
 
 
