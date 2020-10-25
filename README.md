@@ -8,7 +8,7 @@
 </h1>
 
 ## What is BountyIt ?
-A fuzzer made in golang for finding issues like xss, lfi, rce, ssti...comes with pre-defined signatures and signatures wordlist that detects issues using change in content lenght and verify it using signatures.
+A fuzzer made in golang for finding issues like xss, lfi, rce, ssti...comes with pre-defined signatures and signatures wordlist that detects issues using change in content length and verify it using signatures.
 
 ## Help
 ```
