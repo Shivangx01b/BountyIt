@@ -8,7 +8,7 @@
 </h1>
 
 ## What is BountyIt ?
-A fuzzer made in golang for finding issues like xss, lfi, rce, ssti...comes with pre-defined signatures and signatures wordlist that's it!
+A fuzzer made in golang for finding issues like xss, lfi, rce, ssti...comes with pre-defined signatures and signatures wordlist that detects issues using change in content lenght and verify it using signatures.
 
 ## Help
 ```
@@ -52,8 +52,14 @@ Add another method if required
 ```plain
 cat http_https.txt | BountyIt -t 70  -method "POST" -p payloads.txt -grep signatures.txt
 ```
+Add header if required
+```plain
+cat http_https.txt | BountyIt -t 70  -header "Cookie: session=311x1211sx4..." -p payloads.txt -grep signatures.txt
+```
+
 - Note:
   Check wordlist dir for signatures.txt and basic fuzzing list for basic ssti, rce, lfi.
+  Make sure to add -verify as potential issues create false positive.
 
 ## Screenshot
 ![1414](https://github.com/Shivangx01b/LfiMe/blob/main/static/run.PNG)
