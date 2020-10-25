@@ -14,11 +14,13 @@ import (
 	"os"
 	"log"
 	"strings"
+	"regexp"
 
 )
 
 var Threads int
 var recheck_url string
+var header string
 var method string
 var body string
 var payload string
@@ -29,6 +31,7 @@ var confirm []string
 var verify bool
 var grep string
 var greps []string
+var req *http.Request
 
 func getClient() *http.Client {          
 	tr := &http.Transport{
@@ -52,9 +55,30 @@ func getClient() *http.Client {
 	}
 }
 
-func base_request(c *http.Client, u string, method string, matcher string) (int, string) {
-		req, _ := http.NewRequest(method, u, nil)
+func custom_header(header string) {
+	parse := strings.ReplaceAll(header, "\\n", "\n")
+	var h_name string
+	var v_name string
+	r := regexp.MustCompile(`(.*):\s(.*)`)
+	matches := r.FindStringSubmatch(parse)
+	for i, match := range matches {
+		if i == 1 {
+			h_name = match
+		}
+		if i == 2 {
+			v_name = match
+		}
+
+	}
+	req.Header.Set(h_name, v_name)
+}
+
+func base_request(c *http.Client, u string, method string, matcher string, header string) (int, string) {
+		req, _ = http.NewRequest(method, u, nil)
 		if req != nil {
+			if header != "" {
+				custom_header(header)
+			}
 			resp, _ := c.Do(req)
 			if resp != nil {
 				contents, _ := ioutil.ReadAll(resp.Body)
@@ -70,11 +94,11 @@ func base_request(c *http.Client, u string, method string, matcher string) (int,
 }
 
 
-func requester(c *http.Client,  u string, method string, list []string , verify bool, matcher string) {
-	req_base, _ := base_request(c, u, method, matcher)
+func requester(c *http.Client,  u string, method string, list []string , verify bool, matcher string, header string) {
+	req_base, _ := base_request(c, u, method, matcher, header)
 	for _, test := range list {
 		url := strings.Replace(u, "FUZZ", test, -1)
-		req_test, _ := base_request(c, url, method , matcher)
+		req_test, _ := base_request(c, url, method , matcher, header)
 		if req_test != req_base {
 			if verify != true {
 				fmt.Printf("%v %s\n", color.RedString("[!] Potential vulnerability found at:..🛠") , url)
@@ -88,7 +112,7 @@ func requester(c *http.Client,  u string, method string, list []string , verify 
 	}
 	matcher = "check"
 	for _, recheck_url = range confirm {
-		_, checkbody := base_request(c, recheck_url, method, matcher)
+		_, checkbody := base_request(c, recheck_url, method, matcher, header)
 		for _, query :=  range greps {
 			if strings.Contains(checkbody, query)  {
 				fmt.Printf("%v %s\n", color.GreenString("[+] POC:..✨"), recheck_url)
@@ -114,7 +138,7 @@ func grep_add(path string) []string {
 			log.Fatal(err)
 		}
 	} else {
-	 	greps = []string{"bount64yit", "uid=", "groups=" ,"Program Files", "Windows", "[boot loader]", "[drivers]", "[Mail]", "HTTP /1.1", "HTTP /1.0", "About php.ini", "root:x:", "root:*"}
+	 	greps = []string{"bount64yit", "[boot loader]", "[drivers]", "[Mail]", "About php.ini", "root:x:", "root:*"}
 	}
 
 	return greps
@@ -155,8 +179,9 @@ func ParseArguments() {
 	flag.IntVar(&Threads, "t", 40, "Number of workers to use..default 40. Ex: -t 50")
 	flag.StringVar(&payload, "p", "",  "Feed the list of payloads to fuzz. Ex: -p ~/wordlists/lfi.txt")  
 	flag.StringVar(&method, "method",  "GET", "Add method name if required. Ex: -method PUT. Default \"GET\"")
+	flag.StringVar(&header, "header",  "", "Add any custom header if required. Ex: -header \"Cookie: Session=12cbcx....\"")
 	flag.BoolVar(&verify, "verify",  false, "Only prints confirmed results. Ex -verify ")
-	flag.StringVar(&grep, "grep", "", "Specify custom grepping singantures. Ex -grep singantures.txt")
+	flag.StringVar(&grep, "grep", "", "Specify custom grepping signatures. Ex -grep signatures.txt")
 	flag.Parse()
 }
 
@@ -179,7 +204,7 @@ func main() {
 				go func() {
 					defer processGroup.Done()
 					for u := range urls {
-						requester(c, u, method, list, verify, matcher)
+						requester(c, u, method, list, verify, matcher, header)
 					}
 				}()
 			}
