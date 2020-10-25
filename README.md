@@ -12,8 +12,10 @@ A fuzzer made in golang for finding issues like xss, lfi, rce, ssti...comes with
 
 ## Help
 ```
- -grep string
-        Specify custom grepping singantures. Ex -grep singantures.txt
+-grep string
+        Specify custom grepping signatures. Ex -grep signatures.txt
+  -header string
+        Add any custom header if required. Ex: -header "Cookie: Session=12cbcx...."
   -method string
         Add method name if required. Ex: -method PUT. Default "GET" (default "GET")
   -p string
