@@ -3,7 +3,7 @@
   <a href=""><img src="https://github.com/Shivangx01b/LfiMe/blob/main/static/logo.png" alt="" width="200px;"></a>
   <br>
   <img src="https://img.shields.io/github/languages/top/Shivangx01b/BountyIt?style=flat-square">
-  <a href="https://goreportcard.com/report/github.com/Shivangx01b/CorsMe"><img src="https://goreportcard.com/badge/github.com/Shivangx01b/CorsMe"></a>
+  <a href="https://goreportcard.com/report/github.com/Shivangx01b/BountyIt"><img src="https://goreportcard.com/badge/github.com/Shivangx01b/BountyIt"></a>
   <a href="https://twitter.com/intent/follow?screen_name=shivangx01b"><img src="https://img.shields.io/twitter/follow/shivangx01b?style=flat-square"></a>
 </h1>
 
