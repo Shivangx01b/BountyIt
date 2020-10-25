@@ -1,0 +1,13 @@
+bount64yit 
+uid= 
+groups=
+Program Files
+Windows
+[boot loader]
+[drivers]
+[Mail]
+HTTP /1.1
+HTTP /1.0
+About php.ini
+root:x:
+root:*
